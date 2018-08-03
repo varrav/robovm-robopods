@@ -1,0 +1,59 @@
+package: org.robovm.pods.google.consent
+include: [foundation, uikit, storekit]
+framework: PersonalizedAdConsent
+clang_args: ['-x', 'objective-c']
+headers:
+    - PersonalizedAdConsent.h
+typedefs: {}
+enums:
+    PACConsentStatus: {}
+    PACDebugGeography: {}
+classes: 
+    PACAdProvider: {}
+    PACConsentForm:
+        methods:
+            '-presentFromViewController:dismissCompletion:':
+                #trim_after_first_colon: true
+                name: presentFromViewController
+                #$dismissCompletion$ -removed from 'name' suffix
+    PACConsentInformation:
+        methods:
+            '-requestConsentInfoUpdateForPublisherIdentifiers:completionHandler:':
+                #trim_after_first_colon: true
+                name: requestConsentInfoUpdate
+                #ForPublisherIdentifiers$completionHandler$ -removed from 'name' suffix
+protocols: {}
+
+functions:
+    # Make sure we don't miss any functions if new ones are introduced in a later version
+    (PAC.*):
+        class: FIXME
+        name: 'Function__#{g[0]}'
+
+values:
+    PACVersionString:
+        class: PACPersonalizedAdConsent
+        name: getPACVersionString
+        type: NSString
+
+    PACErrorDomain:
+        class: PACPersonalizedAdConsent
+        name: getPACErrorDomain
+        type: NSString
+
+    PACUserDefaultsRootKey:
+        class: PACPersonalizedAdConsent
+        name: PACUserDefaultsRootKey
+        type: NSString
+
+
+    # Make sure we don't miss any values if new ones are introduced in a later version
+    k?(PAC.*):
+        class: FIXME
+        name: 'Value__#{g[0]}'
+
+constants:
+    # Make sure we don't miss any constants if new ones are introduced in a later version
+    k?(PAC.*):
+        class: FIXME
+        name: 'Constant__#{g[0]}'
