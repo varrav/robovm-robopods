@@ -1,12 +1,12 @@
 /*
  * Copyright (C) 2013-2015 RoboVM AB
- *
+ * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
- *
+ * 
  *      http://www.apache.org/licenses/LICENSE-2.0
- *
+ * 
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -36,12 +36,12 @@ import org.robovm.apple.storekit.*;
 /*<javadoc>*/
 
 /*</javadoc>*/
-/*<annotations>*/@Marshaler(ValuedEnum.AsMachineSizedUIntMarshaler.class)/*</annotations>*/
-public enum /*<name>*/CBNotificationUIClickAction/*</name>*/ implements ValuedEnum {
+/*<annotations>*/@Marshaler(ValuedEnum.AsMachineSizedSIntMarshaler.class)/*</annotations>*/
+public enum /*<name>*/CBPIDataUseConsent/*</name>*/ implements ValuedEnum {
     /*<values>*/
-    DisplayNewsfeedUI(0L),
-    PerformLink(1L),
-    None(2L);
+    Unknown(-1L),
+    NoBehavioral(0L),
+    YesBehavioral(1L);
     /*</values>*/
 
     /*<bind>*/
@@ -51,15 +51,15 @@ public enum /*<name>*/CBNotificationUIClickAction/*</name>*/ implements ValuedEn
 
     private final long n;
 
-    private /*<name>*/CBNotificationUIClickAction/*</name>*/(long n) { this.n = n; }
+    private /*<name>*/CBPIDataUseConsent/*</name>*/(long n) { this.n = n; }
     public long value() { return n; }
-    public static /*<name>*/CBNotificationUIClickAction/*</name>*/ valueOf(long n) {
-        for (/*<name>*/CBNotificationUIClickAction/*</name>*/ v : values()) {
+    public static /*<name>*/CBPIDataUseConsent/*</name>*/ valueOf(long n) {
+        for (/*<name>*/CBPIDataUseConsent/*</name>*/ v : values()) {
             if (v.n == n) {
                 return v;
             }
         }
         throw new IllegalArgumentException("No constant with value " + n + " found in " 
-            + /*<name>*/CBNotificationUIClickAction/*</name>*/.class.getName());
+            + /*<name>*/CBPIDataUseConsent/*</name>*/.class.getName());
     }
 }

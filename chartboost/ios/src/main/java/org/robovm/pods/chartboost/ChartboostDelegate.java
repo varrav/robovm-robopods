@@ -1,12 +1,12 @@
 /*
  * Copyright (C) 2013-2015 RoboVM AB
- *
+ * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
- *
+ * 
  *      http://www.apache.org/licenses/LICENSE-2.0
- *
+ * 
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -49,6 +49,8 @@ import org.robovm.apple.storekit.*;
     
     /*</properties>*/
     /*<methods>*/
+    @Method(selector = "customAgeGateView")
+    UIView customAgeGateView();
     @Method(selector = "didInitialize:")
     void didInitialize(boolean status);
     @Method(selector = "shouldRequestInterstitial:")
@@ -69,20 +71,6 @@ import org.robovm.apple.storekit.*;
     void didCloseInterstitial(String location);
     @Method(selector = "didClickInterstitial:")
     void didClickInterstitial(String location);
-    @Method(selector = "shouldDisplayMoreApps:")
-    boolean shouldDisplayMoreApps(String location);
-    @Method(selector = "didDisplayMoreApps:")
-    void didDisplayMoreApps(String location);
-    @Method(selector = "didCacheMoreApps:")
-    void didCacheMoreApps(String location);
-    @Method(selector = "didDismissMoreApps:")
-    void didDismissMoreApps(String location);
-    @Method(selector = "didCloseMoreApps:")
-    void didCloseMoreApps(String location);
-    @Method(selector = "didClickMoreApps:")
-    void didClickMoreApps(String location);
-    @Method(selector = "didFailToLoadMoreApps:withError:")
-    void didFailToLoadMoreApps(String location, CBLoadError error);
     @Method(selector = "shouldDisplayRewardedVideo:")
     boolean shouldDisplayRewardedVideo(String location);
     @Method(selector = "didDisplayRewardedVideo:")
@@ -103,6 +91,8 @@ import org.robovm.apple.storekit.*;
     void didCacheInPlay(String location);
     @Method(selector = "didFailToLoadInPlay:withError:")
     void didFailToLoadInPlay(String location, CBLoadError error);
+    @Method(selector = "willDisplayInterstitial:")
+    void willDisplayInterstitial(String location);
     @Method(selector = "willDisplayVideo:")
     void willDisplayVideo(String location);
     @Method(selector = "didCompleteAppStoreSheetFlow")

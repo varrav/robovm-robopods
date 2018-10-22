@@ -1,12 +1,12 @@
 /*
  * Copyright (C) 2013-2015 RoboVM AB
- *
+ * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
- *
+ * 
  *      http://www.apache.org/licenses/LICENSE-2.0
- *
+ * 
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -34,7 +34,6 @@ import org.robovm.apple.storekit.*;
 /*</imports>*/
 
 /*<javadoc>*/
-
 /*</javadoc>*/
 /*<annotations>*//*</annotations>*/
 /*<visibility>*/public/*</visibility>*/ class /*<name>*/ChartboostDelegateAdapter/*</name>*/ 
@@ -52,6 +51,8 @@ import org.robovm.apple.storekit.*;
     /*</properties>*/
     /*<members>*//*</members>*/
     /*<methods>*/
+    @NotImplemented("customAgeGateView")
+    public UIView customAgeGateView() { return null; }
     @NotImplemented("didInitialize:")
     public void didInitialize(boolean status) {}
     @NotImplemented("shouldRequestInterstitial:")
@@ -72,20 +73,6 @@ import org.robovm.apple.storekit.*;
     public void didCloseInterstitial(String location) {}
     @NotImplemented("didClickInterstitial:")
     public void didClickInterstitial(String location) {}
-    @NotImplemented("shouldDisplayMoreApps:")
-    public boolean shouldDisplayMoreApps(String location) { return true; }
-    @NotImplemented("didDisplayMoreApps:")
-    public void didDisplayMoreApps(String location) {}
-    @NotImplemented("didCacheMoreApps:")
-    public void didCacheMoreApps(String location) {}
-    @NotImplemented("didDismissMoreApps:")
-    public void didDismissMoreApps(String location) {}
-    @NotImplemented("didCloseMoreApps:")
-    public void didCloseMoreApps(String location) {}
-    @NotImplemented("didClickMoreApps:")
-    public void didClickMoreApps(String location) {}
-    @NotImplemented("didFailToLoadMoreApps:withError:")
-    public void didFailToLoadMoreApps(String location, CBLoadError error) {}
     @NotImplemented("shouldDisplayRewardedVideo:")
     public boolean shouldDisplayRewardedVideo(String location) { return true; }
     @NotImplemented("didDisplayRewardedVideo:")
@@ -106,6 +93,8 @@ import org.robovm.apple.storekit.*;
     public void didCacheInPlay(String location) {}
     @NotImplemented("didFailToLoadInPlay:withError:")
     public void didFailToLoadInPlay(String location, CBLoadError error) {}
+    @NotImplemented("willDisplayInterstitial:")
+    public void willDisplayInterstitial(String location) {}
     @NotImplemented("willDisplayVideo:")
     public void willDisplayVideo(String location) {}
     @NotImplemented("didCompleteAppStoreSheetFlow")

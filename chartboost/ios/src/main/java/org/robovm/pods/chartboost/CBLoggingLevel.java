@@ -36,34 +36,32 @@ import org.robovm.apple.storekit.*;
 /*<javadoc>*/
 
 /*</javadoc>*/
-/*<annotations>*/@Library(Library.INTERNAL) @NativeClass/*</annotations>*/
-/*<visibility>*/public/*</visibility>*/ class /*<name>*/CBInPlay/*</name>*/ 
-    extends /*<extends>*/NSObject/*</extends>*/ 
-    /*<implements>*//*</implements>*/ {
+/*<annotations>*/@Marshaler(ValuedEnum.AsMachineSizedUIntMarshaler.class)/*</annotations>*/
+public enum /*<name>*/CBLoggingLevel/*</name>*/ implements ValuedEnum {
+    /*<values>*/
+    Off(0L),
+    Verbose(1L),
+    Info(2L),
+    Warning(3L),
+    Error(4L);
+    /*</values>*/
 
-    /*<ptr>*/public static class CBInPlayPtr extends Ptr<CBInPlay, CBInPlayPtr> {}/*</ptr>*/
-    /*<bind>*/static { ObjCRuntime.bind(CBInPlay.class); }/*</bind>*/
+    /*<bind>*/
+    /*</bind>*/
     /*<constants>*//*</constants>*/
-    /*<constructors>*/
-    public CBInPlay() {}
-    protected CBInPlay(Handle h, long handle) { super(h, handle); }
-    protected CBInPlay(SkipInit skipInit) { super(skipInit); }
-    /*</constructors>*/
-    /*<properties>*/
-    @Property(selector = "location")
-    public native int getLocation();
-    @Property(selector = "appIcon")
-    public native NSData getAppIcon();
-    @Property(selector = "appName")
-    public native String getAppName();
-    /*</properties>*/
-    /*<members>*//*</members>*/
-    /*<methods>*/
-    @Method(selector = "show")
-    public native void show();
-    @Method(selector = "click")
-    public native void click();
-    @Method(selector = "clearCache")
-    public native void clearCache();
-    /*</methods>*/
+    /*<methods>*//*</methods>*/
+
+    private final long n;
+
+    private /*<name>*/CBLoggingLevel/*</name>*/(long n) { this.n = n; }
+    public long value() { return n; }
+    public static /*<name>*/CBLoggingLevel/*</name>*/ valueOf(long n) {
+        for (/*<name>*/CBLoggingLevel/*</name>*/ v : values()) {
+            if (v.n == n) {
+                return v;
+            }
+        }
+        throw new IllegalArgumentException("No constant with value " + n + " found in " 
+            + /*<name>*/CBLoggingLevel/*</name>*/.class.getName());
+    }
 }

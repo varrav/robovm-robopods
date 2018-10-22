@@ -1,12 +1,12 @@
 /*
  * Copyright (C) 2013-2015 RoboVM AB
- *
+ * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
- *
+ * 
  *      http://www.apache.org/licenses/LICENSE-2.0
- *
+ * 
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -53,14 +53,16 @@ import org.robovm.apple.storekit.*;
     
     /*</properties>*/
     /*<members>*//*</members>*/
+    /*<methods>*/
+    /*<added_by_rav>*/
     private static ChartboostDelegate delegate;
-    
-    public static void start(String appId, String appSignature, ChartboostDelegate delegate) {
+
+    public static void startWithAppId(String appId, String appSignature, ChartboostDelegate delegate) {
         Chartboost.delegate = delegate;
         start0(appId, appSignature, delegate);
     }
-    
-    public static boolean hasInterstitial(CBLocation location) {
+
+    /*public static boolean hasInterstitial(CBLocation location) {
         return hasInterstitial(location.value().toString());
     }
     public static void showInterstitial(CBLocation location) {
@@ -98,28 +100,36 @@ import org.robovm.apple.storekit.*;
     }
     public static CBInPlay getInPlay(CBLocation location) {
         return getInPlay(location.value().toString());
-    }
-    /*<methods>*/
+    }*/
+    /*</added_by_rav>*/
     @Method(selector = "startWithAppId:appSignature:delegate:")
     private static native void start0(String appId, String appSignature, ChartboostDelegate delegate);
-    @Method(selector = "setDelegate:")
-    public static native void setDelegate(ChartboostDelegate del);
+    @Method(selector = "getSDKVersion")
+    public static native String getSDKVersion();
+    @Method(selector = "setLoggingLevel:")
+    public static native void setLoggingLevel(CBLoggingLevel loggingLevel);
     @Method(selector = "isAnyViewVisible")
     public static native boolean isAnyViewVisible();
     @Method(selector = "hasInterstitial:")
     public static native boolean hasInterstitial(String location);
-    @Method(selector = "showInterstitial:")
-    public static native void showInterstitial(String location);
-    @Method(selector = "hasMoreApps:")
-    public static native boolean hasMoreApps(String location);
-    @Method(selector = "showMoreApps:")
-    public static native void showMoreApps(String location);
-    @Method(selector = "showMoreApps:location:")
-    public static native void showMoreApps(UIViewController viewController, String location);
     @Method(selector = "hasRewardedVideo:")
     public static native boolean hasRewardedVideo(String location);
+    @Method(selector = "hasInPlay:")
+    public static native boolean hasInPlay(String location);
+    @Method(selector = "cacheInterstitial:")
+    public static native void cacheInterstitial(String location);
+    @Method(selector = "showInterstitial:")
+    public static native void showInterstitial(String location);
+    @Method(selector = "cacheRewardedVideo:")
+    public static native void cacheRewardedVideo(String location);
     @Method(selector = "showRewardedVideo:")
     public static native void showRewardedVideo(String location);
+    @Method(selector = "cacheInPlay:")
+    public static native void cacheInPlay(String location);
+    @Method(selector = "getInPlay:")
+    public static native CBInPlay getInPlay(String location);
+    @Method(selector = "setDelegate:")
+    public static native void setDelegate(ChartboostDelegate del);
     @Method(selector = "didPassAgeGate:")
     public static native void didPassAgeGate(boolean pass);
     @Method(selector = "handleOpenURL:sourceApplication:")
@@ -140,18 +150,8 @@ import org.robovm.apple.storekit.*;
     public static native void setShouldRequestInterstitialsInFirstSession(boolean shouldRequest);
     @Method(selector = "setShouldPauseClickForConfirmation:")
     public static native void setShouldPauseClickForConfirmation(boolean shouldPause);
-    @Method(selector = "setShouldDisplayLoadingViewForMoreApps:")
-    public static native void setShouldDisplayLoadingViewForMoreApps(boolean shouldDisplay);
     @Method(selector = "setShouldPrefetchVideoContent:")
     public static native void setShouldPrefetchVideoContent(boolean shouldPrefetch);
-    @Method(selector = "getSDKVersion")
-    public static native String getSDKVersion();
-    @Method(selector = "cacheInterstitial:")
-    public static native void cacheInterstitial(String location);
-    @Method(selector = "cacheMoreApps:")
-    public static native void cacheMoreApps(String location);
-    @Method(selector = "cacheRewardedVideo:")
-    public static native void cacheRewardedVideo(String location);
     @Method(selector = "setAutoCacheAds:")
     public static native void setAutoCacheAds(boolean shouldCache);
     @Method(selector = "getAutoCacheAds")
@@ -160,11 +160,21 @@ import org.robovm.apple.storekit.*;
     public static native void setStatusBarBehavior(CBStatusBarBehavior statusBarBehavior);
     @Method(selector = "getAutoIAPTracking")
     public static native boolean getAutoIAPTracking();
-    @Method(selector = "cacheInPlay:")
-    public static native void cacheInPlay(String location);
-    @Method(selector = "hasInPlay:")
-    public static native boolean hasInPlay(String location);
-    @Method(selector = "getInPlay:")
-    public static native CBInPlay getInPlay(String location);
+    @Method(selector = "setMuted:")
+    public static native void setMuted(boolean mute);
+    @Method(selector = "setPIDataUseConsent:")
+    public static native void setPIDataUseConsent(CBPIDataUseConsent consent);
+    @Method(selector = "getPIDataUseConsent")
+    public static native CBPIDataUseConsent getPIDataUseConsent();
+    @Method(selector = "hasMoreApps:")
+    public static native boolean hasMoreApps(String location);
+    @Method(selector = "showMoreApps:")
+    public static native void showMoreApps(String location);
+    @Method(selector = "showMoreApps:location:")
+    public static native void showMoreApps(UIViewController viewController, String location);
+    @Method(selector = "setShouldDisplayLoadingViewForMoreApps:")
+    public static native void setShouldDisplayLoadingViewForMoreApps(boolean shouldDisplay);
+    @Method(selector = "cacheMoreApps:")
+    public static native void cacheMoreApps(String location);
     /*</methods>*/
 }

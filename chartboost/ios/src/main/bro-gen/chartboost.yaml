@@ -1,8 +1,9 @@
+#7.3.0
 package: org.robovm.pods.chartboost
 framework: Chartboost
 include: [foundation, uikit, coregraphics, storekit]
 clang_args: ['-x', 'objective-c']
-headers: [Chartboost.h, CBAnalytics.h, CBInPlay.h, CBMoreAppsBadge.h, CBMoreAppsButton.h]
+headers: [Chartboost.h, CBAnalytics.h, CBInPlay.h, ChartboostDelegate.h]
 typedefs:
     'void (^)(CBStory *)': '@Block VoidBlock1<CBStory>'
     'void (^)(NSError *, NSDictionary *)': '@Block VoidBlock2<NSError, NSDictionary<?, ?>>'
@@ -15,6 +16,8 @@ enums:
     CBMediation: {}
     CBNotificationUIClickAction: {}
     CBStatusBarBehavior: {}
+    CBLoggingLevel: {}
+    CBPIDataUseConsent: {}
 
 categories:
     CBInPlay: # DONE
@@ -45,6 +48,8 @@ classes:
                 constructor: true
     Chartboost: # DONE
         methods:
+            '+restrictDataCollection:':
+                exclude: true # deprecated ADDED BY RAV
             '+startWithAppId:appSignature:delegate:':
                 name: start0
                 visibility: private
