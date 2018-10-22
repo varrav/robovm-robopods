@@ -1,14 +1,16 @@
+#taken .yaml from pods ver 2.2.2 (for flurry 7.3.0) and patched via console output till flurry 9.2.1
 package: org.robovm.pods.flurry.analytics
 framework: FlurryAnalytics
-include: [foundation, uikit, coregraphics]
+include: [foundation, uikit, coregraphics, storekit]#added by rav storekit
 clang_args: ['-x', 'objective-c']
-headers: [Flurry.h, FlurryWatch.h]
+headers: [Flurry.h, FlurryConsent.h, FlurrySessionBuilder.h, FlurryWatch.h]
 typedefs:
     
 enums:
     FlurryLogLevel: {first: FlurryLogLevelNone}
     FlurryEventRecordStatus: {first: FlurryEventFailed}
     FlurrySyndicationEvent: {first: FlurrySyndicationReblog}
+    FlurryTransactionRecordStatus: {first: FlurryTransactionRecordFailed}
         
 classes:
     Flurry: # DONE
@@ -43,6 +45,34 @@ classes:
                         type: double
                     verticalAccuracy:
                         type: double
+            #added from console for 9.2.1
+            '+setDelegate:withCallbackQueue:':
+                #trim_after_first_colon: true
+                name: setDelegate$withCallbackQueue$
+            '+logPaymentTransaction:statusCallback:':
+                #trim_after_first_colon: true
+                name: logPaymentTransaction$statusCallback$
+            #added from console end
+
+    #added from console for 9.2.1
+    FlurryConsent:
+        methods:
+            '-initWithGDPRScope:andConsentStrings:':
+                #trim_after_first_colon: true
+                name: initWithGDPRScope$andConsentStrings$
+    FlurrySessionBuilder: {}
+    FlurryWatch:
+        methods:
+            '+logWatchEvent:withParameters:':
+                #trim_after_first_colon: true
+                name: logWatchEvent$withParameters$
+            '+logWatchError:message:exception:':
+                #trim_after_first_colon: true
+                name: logWatchError$message$exception$
+            '+logWatchError:message:error:':
+                #trim_after_first_colon: true
+                name: logWatchError$message$error$
+    #added from console end
 
 protocols:
     FlurryDelegate: # DONE

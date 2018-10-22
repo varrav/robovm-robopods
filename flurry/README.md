@@ -8,7 +8,7 @@ Measure, track and analyze app performance, user acquisition and activity with F
 |-------------------------------------------|---------|------------------------------|
 | [ios](ios/)                               | 7.6.6   | Flurry iOS binding           |
 | [ios-ads](ios-ads/)                       | 7.6.6   | Flurry Ads iOS binding       |
-| [ios-analytics](ios-analytics/)           | 7.6.6   | Flurry Analytics iOS binding |
+| [ios-analytics](ios-analytics/)           | 9.2.1   | Flurry Analytics iOS binding |
 
 ## Official website
 
