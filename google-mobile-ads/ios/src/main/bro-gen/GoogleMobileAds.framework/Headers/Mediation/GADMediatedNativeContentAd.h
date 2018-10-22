@@ -6,28 +6,46 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <GoogleMobileAds/GADMediatedNativeAd.h>
+
 #import <GoogleMobileAds/GADNativeAdImage.h>
+#import <GoogleMobileAds/GoogleMobileAdsDefines.h>
+#import <GoogleMobileAds/Mediation/GADMediatedNativeAd.h>
+
+NS_ASSUME_NONNULL_BEGIN
 
 /// Provides methods used for constructing native content ads.
+GAD_DEPRECATED_MSG_ATTRIBUTE("Use GADMediatedUnifiedNativeAd instead.")
 @protocol GADMediatedNativeContentAd<GADMediatedNativeAd>
 
 /// Primary text headline.
-- (NSString *)headline;
+- (nullable NSString *)headline;
 
 /// Secondary text.
-- (NSString *)body;
+- (nullable NSString *)body;
 
 /// List of large images. Each object is an instance of GADNativeAdImage.
-- (NSArray *)images;
+- (nullable NSArray *)images;
 
 /// Small logo image.
-- (GADNativeAdImage *)logo;
+- (nullable GADNativeAdImage *)logo;
 
 /// Text that encourages user to take some action with the ad.
-- (NSString *)callToAction;
+- (nullable NSString *)callToAction;
 
 /// Identifies the advertiser. For example, the advertiser’s name or visible URL.
-- (NSString *)advertiser;
+- (nullable NSString *)advertiser;
+
+@optional
+
+/// AdChoices view.
+- (nullable UIView *)adChoicesView;
+
+/// Media view.
+- (nullable UIView *)mediaView;
+
+/// Returns YES if the ad has video content.
+- (BOOL)hasVideoContent;
 
 @end
+
+NS_ASSUME_NONNULL_END

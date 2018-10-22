@@ -12,8 +12,10 @@
 @class DFPBannerView;
 @class DFPCustomRenderedAd;
 
-GAD_ASSUME_NONNULL_BEGIN
+NS_ASSUME_NONNULL_BEGIN
 
+/// The DFPCustomRenderedAd banner view delegate protocol for notifying the delegate of changes to
+/// custom rendered banners.
 @protocol DFPCustomRenderedBannerViewDelegate<NSObject>
 
 /// Called after ad data has been received. You must construct a banner from |customRenderedAd| and
@@ -23,4 +25,4 @@ GAD_ASSUME_NONNULL_BEGIN
 
 @end
 
-GAD_ASSUME_NONNULL_END
+NS_ASSUME_NONNULL_END

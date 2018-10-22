@@ -7,6 +7,11 @@
 
 #import <UIKit/UIKit.h>
 
+#import <GoogleMobileAds/GADNativeAd.h>
+#import <GoogleMobileAds/GoogleMobileAdsDefines.h>
+
+NS_ASSUME_NONNULL_BEGIN
+
 /// Displays native ad media assets.
 ///
 /// To display media assets in GADNativeAppInstallAdView instances, add a GADMediaView subview and
@@ -17,5 +22,9 @@
 ///
 /// If the native ad doesn't contain a video and image loading is disabled, the GADMediaView object
 /// is empty.
+GAD_SUBCLASSING_RESTRICTED
 @interface GADMediaView : UIView
+
 @end
+
+NS_ASSUME_NONNULL_END
