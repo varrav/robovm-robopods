@@ -33,27 +33,35 @@ import org.robovm.apple.foundation.*;
 /*<javadoc>*/
 
 /*</javadoc>*/
-/*<annotations>*/@Library(Library.INTERNAL) @NativeClass/*</annotations>*/
-/*<visibility>*/public/*</visibility>*/ class /*<name>*/FIRMessagingRemoteMessage/*</name>*/ 
-    extends /*<extends>*/NSObject/*</extends>*/ 
-    /*<implements>*//*</implements>*/ {
+/*<annotations>*/@Marshaler(ValuedEnum.AsMachineSizedUIntMarshaler.class)/*</annotations>*/
+public enum /*<name>*/FIRMessagingError/*</name>*/ implements ValuedEnum {
+    /*<values>*/
+    Unknown(0L),
+    Authentication(1L),
+    NoAccess(2L),
+    Timeout(3L),
+    Network(4L),
+    OperationInProgress(5L),
+    InvalidRequest(7L),
+    InvalidTopicName(8L);
+    /*</values>*/
 
-    /*<ptr>*/public static class FIRMessagingRemoteMessagePtr extends Ptr<FIRMessagingRemoteMessage, FIRMessagingRemoteMessagePtr> {}/*</ptr>*/
-    /*<bind>*/static { ObjCRuntime.bind(FIRMessagingRemoteMessage.class); }/*</bind>*/
+    /*<bind>*/
+    /*</bind>*/
     /*<constants>*//*</constants>*/
-    /*<constructors>*/
-    public FIRMessagingRemoteMessage() {}
-    protected FIRMessagingRemoteMessage(Handle h, long handle) { super(h, handle); }
-    protected FIRMessagingRemoteMessage(SkipInit skipInit) { super(skipInit); }
-    /*</constructors>*/
-    /*<properties>*/
-    @Property(selector = "messageID")
-    public native String getMessageID();
-    @Property(selector = "appData")
-    public native NSDictionary<?, ?> getAppData();
-    /*</properties>*/
-    /*<members>*//*</members>*/
-    /*<methods>*/
-    
-    /*</methods>*/
+    /*<methods>*//*</methods>*/
+
+    private final long n;
+
+    private /*<name>*/FIRMessagingError/*</name>*/(long n) { this.n = n; }
+    public long value() { return n; }
+    public static /*<name>*/FIRMessagingError/*</name>*/ valueOf(long n) {
+        for (/*<name>*/FIRMessagingError/*</name>*/ v : values()) {
+            if (v.n == n) {
+                return v;
+            }
+        }
+        throw new IllegalArgumentException("No constant with value " + n + " found in " 
+            + /*<name>*/FIRMessagingError/*</name>*/.class.getName());
+    }
 }

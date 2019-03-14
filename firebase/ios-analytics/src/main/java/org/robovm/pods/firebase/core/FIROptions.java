@@ -45,12 +45,10 @@ import org.robovm.apple.foundation.*;
     public FIROptions() {}
     protected FIROptions(Handle h, long handle) { super(h, handle); }
     protected FIROptions(SkipInit skipInit) { super(skipInit); }
-    @Method(selector = "initWithGoogleAppID:bundleID:GCMSenderID:APIKey:clientID:trackingID:androidClientID:databaseURL:storageBucket:deepLinkURLScheme:")
-    public FIROptions(String googleAppID, String bundleID, String GCMSenderID, String APIKey, String clientID, String trackingID, String androidClientID, String databaseURL, String storageBucket, String deepLinkURLScheme) { super((SkipInit) null); initObject(initWithGoogleAppID(googleAppID, bundleID, GCMSenderID, APIKey, clientID, trackingID, androidClientID, databaseURL, storageBucket, deepLinkURLScheme)); }
     @Method(selector = "initWithContentsOfFile:")
-    public FIROptions(String plistPath) { super((SkipInit) null); initObject(initWithContentsOfFile(plistPath)); }
+    public FIROptions(String plistPath) { super((SkipInit) null); initObject(init(plistPath)); }
     @Method(selector = "initWithGoogleAppID:GCMSenderID:")
-    public FIROptions(String googleAppID, String GCMSenderID) { super((SkipInit) null); initObject(initWithGoogleAppID(googleAppID, GCMSenderID)); }
+    public FIROptions(String googleAppID, String GCMSenderID) { super((SkipInit) null); initObject(init(googleAppID, GCMSenderID)); }
     /*</constructors>*/
     /*<properties>*/
     @Property(selector = "APIKey")
@@ -100,12 +98,10 @@ import org.robovm.apple.foundation.*;
     /*</properties>*/
     /*<members>*//*</members>*/
     /*<methods>*/
-    @Method(selector = "initWithGoogleAppID:bundleID:GCMSenderID:APIKey:clientID:trackingID:androidClientID:databaseURL:storageBucket:deepLinkURLScheme:")
-    protected native @Pointer long initWithGoogleAppID(String googleAppID, String bundleID, String GCMSenderID, String APIKey, String clientID, String trackingID, String androidClientID, String databaseURL, String storageBucket, String deepLinkURLScheme);
     @Method(selector = "initWithContentsOfFile:")
-    protected native @Pointer long initWithContentsOfFile(String plistPath);
+    protected native @Pointer long init(String plistPath);
     @Method(selector = "initWithGoogleAppID:GCMSenderID:")
-    protected native @Pointer long initWithGoogleAppID(String googleAppID, String GCMSenderID);
+    protected native @Pointer long init(String googleAppID, String GCMSenderID);
     @Method(selector = "defaultOptions")
     public static native FIROptions defaultOptions();
     /*</methods>*/

@@ -33,30 +33,27 @@ import org.robovm.apple.foundation.*;
 /*<javadoc>*/
 
 /*</javadoc>*/
-/*<annotations>*/@Marshaler(ValuedEnum.AsMachineSizedSIntMarshaler.class)/*</annotations>*/
-public enum /*<name>*/FIRInstanceIDAPNSTokenType/*</name>*/ implements ValuedEnum {
-    /*<values>*/
-    Unknown(0L),
-    Sandbox(1L),
-    Prod(2L);
-    /*</values>*/
+/*<annotations>*/@Library(Library.INTERNAL) @NativeClass/*</annotations>*/
+/*<visibility>*/public/*</visibility>*/ class /*<name>*/FIRInstanceIDResult/*</name>*/ 
+    extends /*<extends>*/NSObject/*</extends>*/ 
+    /*<implements>*//*</implements>*/ {
 
-    /*<bind>*/
-    /*</bind>*/
+    /*<ptr>*/public static class FIRInstanceIDResultPtr extends Ptr<FIRInstanceIDResult, FIRInstanceIDResultPtr> {}/*</ptr>*/
+    /*<bind>*/static { ObjCRuntime.bind(FIRInstanceIDResult.class); }/*</bind>*/
     /*<constants>*//*</constants>*/
-    /*<methods>*//*</methods>*/
-
-    private final long n;
-
-    private /*<name>*/FIRInstanceIDAPNSTokenType/*</name>*/(long n) { this.n = n; }
-    public long value() { return n; }
-    public static /*<name>*/FIRInstanceIDAPNSTokenType/*</name>*/ valueOf(long n) {
-        for (/*<name>*/FIRInstanceIDAPNSTokenType/*</name>*/ v : values()) {
-            if (v.n == n) {
-                return v;
-            }
-        }
-        throw new IllegalArgumentException("No constant with value " + n + " found in " 
-            + /*<name>*/FIRInstanceIDAPNSTokenType/*</name>*/.class.getName());
-    }
+    /*<constructors>*/
+    public FIRInstanceIDResult() {}
+    protected FIRInstanceIDResult(Handle h, long handle) { super(h, handle); }
+    protected FIRInstanceIDResult(SkipInit skipInit) { super(skipInit); }
+    /*</constructors>*/
+    /*<properties>*/
+    @Property(selector = "instanceID")
+    public native String getInstanceID();
+    @Property(selector = "token")
+    public native String getToken();
+    /*</properties>*/
+    /*<members>*//*</members>*/
+    /*<methods>*/
+    
+    /*</methods>*/
 }

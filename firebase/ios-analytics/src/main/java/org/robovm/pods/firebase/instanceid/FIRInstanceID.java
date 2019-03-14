@@ -51,18 +51,18 @@ import org.robovm.apple.foundation.*;
     /*</properties>*/
     /*<members>*//*</members>*/
     /*<methods>*/
-    @Method(selector = "setAPNSToken:type:")
-    public native void setAPNSToken(NSData token, FIRInstanceIDAPNSTokenType type);
+    @Method(selector = "instanceIDWithHandler:")
+    public native void instanceID(@Block VoidBlock2<FIRInstanceIDResult, NSError> handler);
     @Method(selector = "token")
     public native String token();
     @Method(selector = "tokenWithAuthorizedEntity:scope:options:handler:")
-    public native void tokenWithAuthorizedEntity(String authorizedEntity, String scope, NSDictionary<?, ?> options, @Block VoidBlock2<String, NSError> handler);
+    public native void token(String authorizedEntity, String scope, NSDictionary<?, ?> options, @Block VoidBlock2<NSString, NSError> handler);
     @Method(selector = "deleteTokenWithAuthorizedEntity:scope:handler:")
-    public native void deleteTokenWithAuthorizedEntity(String authorizedEntity, String scope, @Block VoidBlock1<NSError> handler);
+    public native void deleteToken(String authorizedEntity, String scope, @Block VoidBlock1<NSError> handler);
     @Method(selector = "getIDWithHandler:")
-    public native void getIDWithHandler(@Block VoidBlock2<String, NSError> handler);
+    public native void getID(@Block VoidBlock2<NSString, NSError> handler);
     @Method(selector = "deleteIDWithHandler:")
-    public native void deleteIDWithHandler(@Block VoidBlock1<NSError> handler);
+    public native void deleteID(@Block VoidBlock1<NSError> handler);
     @Method(selector = "instanceID")
     public static native FIRInstanceID instanceID();
     /*</methods>*/
